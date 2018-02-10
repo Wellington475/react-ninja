@@ -13,6 +13,5 @@ Instalação global:
 
 ```sh
 $ npm install
-$ webpack
-$ webpack-dev-server
+$ npm start
 ```
