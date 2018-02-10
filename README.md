@@ -1,4 +1,4 @@
-# React Ninja
+# React Ninja [![Build Status](https://travis-ci.org/Wellington475/react-ninja.svg?branch=develop)](https://travis-ci.org/Wellington475/react-ninja.svg?branch=develop)
 
 Esse é um mini-projeto para o estudo relâmpago de ReactJs com webpack.
 
@@ -13,5 +13,6 @@ Instalação global:
 
 ```sh
 $ npm install
+$ npm test
 $ npm start
 ```
