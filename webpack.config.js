@@ -16,7 +16,7 @@ module.exports = validade({
 	output: {
 		path: path.join(__dirname, 'dist'),
 		filename: 'bundle.js',
-		publicPath: '/static/'
+		publicPath: '/static/js/'
 	},
 
 	plugins: [
