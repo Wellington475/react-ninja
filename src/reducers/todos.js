@@ -1,21 +1,15 @@
-const todo = (state = {}, action) => {
-  switch (action.type) {
-    case 'ADD_TODO':
-      return {
-        id: action.id,
-        text: action.text,
-        completed: false
-      }
-    case 'TOGGLE_TODO':
-      if (state.id !== action.id) {
-        return state
-      }
-      return {
-        ...state,
-        completed: !state.completed
-      }
-    default:
-      return state
+const addTodo = (action) => {
+  return {
+    id: action.id,
+    text: action.text,
+    completed: false
+  }
+}
+
+const toggleTodo = (todo) => {
+  return {
+    ...todo,
+    completed: !todo.completed
   }
 }
 
@@ -24,10 +18,18 @@ const todos = (state = [], action) => {
     case 'ADD_TODO':
       return [
         ...state,
-        todo(undefined, action)
+        addTodo(action)
       ]
+
     case 'TOGGLE_TODO':
-      return state.map(t => todo(t, action))
+      return state.map(todo => {
+        if (todo.id !== action.id) return todo
+        return toggleTodo(todo)
+      })
+
+    case 'DELETE':
+      return []
+
     default:
       return state
   }

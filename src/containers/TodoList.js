@@ -1,12 +1,29 @@
-import React from 'react'
+import { connect } from 'react-redux'
 
-class todoList extends React.Component {
-  render () {
-    return (
-      <div>
-      </div>
-    )
+import TodoList from '../components/todo/TodoList'
+import { toggleTodo } from '../actions'
+
+const filterTodo = (todos, type) => {
+  switch (type) {
+    case 'SHOW_ALL':
+      return todos
+    case 'SHOW_ACTIVE':
+      return todos.filter(todo => todo.completed === false)
+    case 'SHOW_COMPLETED':
+      return todos.filter(todo => todo.completed === true)
+    default:
+      return todos
   }
 }
 
-export default todoList
+const mapStateToProps = (state) => {
+  return {
+    todos: filterTodo(state.todos, state.visibilityFilter)
+  }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  onToggleSelect: id => dispatch(toggleTodo(id))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList)

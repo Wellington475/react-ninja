@@ -15,12 +15,21 @@ export const addTodo = text => {
 
 /**
  * setVisibilityFilter - Filter by
- * @param {string} filter #e.g. 'SHOW_ALL' | 'SHOW_ACTIVE' | 'SHOW_COMPLETED' 
+ * @param {string} filter #e.g. 'SHOW_ALL' | 'SHOW_ACTIVE' | 'SHOW_COMPLETED'
  */
 export const setVisibilityFilter = filter => {
   return {
     type: 'SET_VISIBILITY_FILTER',
     filter
+  }
+}
+
+/**
+ * cleanTodo - Delete Todo list
+ */
+export const cleanTodo = () => {
+  return {
+    type: 'DELETE'
   }
 }
 

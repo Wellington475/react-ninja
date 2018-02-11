@@ -1,5 +1,8 @@
 import React from 'react'
-import { Navbar, NavItem, Nav, Grid, Row, Col } from 'react-bootstrap/lib'
+import {
+  Grid, Row, Col,
+  Navbar, NavItem, Nav
+} from 'react-bootstrap/lib'
 
 class App extends React.Component {
   render () {
@@ -8,7 +11,7 @@ class App extends React.Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href='/'>React Ninja</a>
+              <a className='logo' href='/'>React Ninja</a>
             </Navbar.Brand>
           </Navbar.Header>
           <Nav>
