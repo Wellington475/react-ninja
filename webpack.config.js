@@ -7,9 +7,6 @@ const validade = require('webpack-validator');
 module.exports = validade({
 	devtool: 'source-map',
 	entry: [
-		'react-hot-loader/patch',
-		'webpack-dev-server/client?http://localhost:3000',
-		'webpack/hot/only-dev-server',
 		path.join(__dirname, 'src', 'index')
 	],
 	
@@ -19,10 +16,6 @@ module.exports = validade({
 		publicPath: '/static/js/'
 	},
 
-	plugins: [
-		new webpack.HotModuleReplacementPlugin()
-	],
-
 	module: {
 		preLoaders: [{
 			test: /\.js$/,
@@ -30,6 +23,7 @@ module.exports = validade({
 			include: /src/,
 			loader: 'standard'
 		}],
+
 		loaders: [{
       test: /\.js$/,
       exclude: /node_modules/,
